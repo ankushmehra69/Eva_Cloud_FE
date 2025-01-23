@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input,
+button,
+a,
+select {
+    @apply outline-none focus:outline-none;
+    &:disabled {
+        @apply cursor-not-allowed;
+    }
+}
+
+.btn {
+    @apply md:px-6 px-5 py-2.5 text-sm md:text-base rounded-full transition-all;
+
+    &:disabled {
+        @apply cursor-not-allowed;
+    }
+}
+
+.btn-sm {
+    @apply px-5 py-2 !important;
+}
+
+.btn-primary {
+    @apply text-white bg-primary hover:bg-primary/80;
+
+    &:disabled {
+        @apply bg-grey-100 text-grey-200;
+    }
+}
+.btn-secondary {
+    @apply text-white bg-secondary hover:bg-secondary/80;
+
+    &:disabled {
+        @apply bg-grey-100 text-grey-200;
+    }
+}
+.btn-danger {
+    @apply text-white bg-danger hover:bg-red-500;
+
+    &:disabled {
+        @apply bg-danger text-grey-200;
+    }
+}
+
+.btn-primary-outline {
+    @apply text-primary border border-primary hover:bg-primary/10;
+
+    &:disabled {
+        @apply bg-primary text-grey-200;
+    }
+}
+
+.btn-danger-outline {
+    @apply text-danger border border-danger hover:bg-danger/10;
+
+    &:disabled {
+        @apply bg-danger text-grey-200;
+    }
+}
+
+.btn-outline {
+    @apply text-secondary border border-grey-200 hover:bg-grey-200/50;
+
+    &:disabled {
+        @apply bg-grey-100 text-grey-200;
+    }
+}
