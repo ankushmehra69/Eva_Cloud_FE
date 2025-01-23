@@ -10,6 +10,8 @@ import usePublicAPI from "./public";
 import useCommentsAPI from "./comments";
 import useAnnotationsAPI from "./annotations";
 import useIpropsAPI from "./iprops";
+import useSessionReportAPI from "./sessionReport";
+import useSessionReportMediaAPI from "./sessionReportMedia";
 
 export default {
   users: useUsersAPI(),
@@ -24,4 +26,6 @@ export default {
   comments: useCommentsAPI(),
   annotations: useAnnotationsAPI(),
   iprops: useIpropsAPI(),
+  session_report: useSessionReportAPI(),
+  session_report_media: useSessionReportMediaAPI(),
 };

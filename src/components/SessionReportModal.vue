@@ -178,6 +178,17 @@
       </div>
     </div>
   </div>
+
+      <!-- Media Selection Modal -->
+      <MediaSelectionModal
+        v-if="showMediaSelectionModal"
+        :isVisible="showMediaSelectionModal"
+        :sessionId="props.sessionId"
+        :reportId="`${reportData?.id}`"
+        @close="showMediaSelectionModal = false"
+        @mediaAdded="handleMediaAdded"
+      />
+
 </template>
 
 
