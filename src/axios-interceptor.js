@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useUIStore } from "@/stores/ui";
+import { fetchAuthSession } from "aws-amplify/auth";
 
-export default function setupInterceptors(pinia) {
+export default async function setupInterceptors(pinia) {
   const uiStore = useUIStore(pinia);
+  const session = await fetchAuthSession();
 
   axios.defaults.timeout = 60000;
 
@@ -26,9 +28,14 @@ export default function setupInterceptors(pinia) {
     (error) => {
       uiStore.decrementRequestCount(); // Decrement on response error
       if (error.response) {
-        uiStore.setError(
-          `Error:\n${error.response?.data?.message}\n${error.response.statusText}`
-        );
+        if(!        session && !session.tokens) {
+          return;
+        }else{
+          uiStore.setError(
+            `Error:\n${error.response?.data?.message}\n${error.response.statusText}`
+          );
+        }
+       
       } else if (error.request) {
         uiStore.setError("No response received from the server.");
       } else {

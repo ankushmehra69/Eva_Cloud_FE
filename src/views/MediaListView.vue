@@ -125,7 +125,7 @@
     <div class="grid lg:grid-cols-5 grid-cols-3 gap-6 md:gap-y-10 py-4">
       <div
         class="cursor-pointer text-center flex flex-col justify-cente items-center relative"
-        v-for="media in mediaList"
+        v-for="(media,index) in mediaList"
         :key="media.id"
       >
         <Menu
@@ -225,7 +225,7 @@
                   <div
                     class="md:text-sm text-xs mb-px px-3 md:mb-0 font-medium text-white truncate"
                   >
-                    {{ media.name }}
+                    <!-- {{ media.name }} --> Img-{{ index+1 }}
                   </div>
                   <div
                     class="md:text-[9px] text-[8px] font-light text-grey-300 flex items-center gap-1 justify-center"
